@@ -1,0 +1,60 @@
+.app-wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 100%;
+	padding: 32px;
+	max-width: 75rem;
+	margin: 0 auto;
+	background: bisque;
+	gap: 16px;
+
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:2rem;
+        gap: 16px;
+		height: 148px;
+        &__label{
+            font-size: 28px;
+        }
+        &__logo{
+            width: 7rem;
+            height: 7rem;
+            border-radius: 50%;
+        }
+    }
+
+	.column-headers {
+		display: flex;
+		height: 40px;
+		gap: 264px;
+		border-bottom: 2px solid #31774d;;
+	}
+
+	.list {
+		min-height: 30rem;
+		max-height: 50rem;
+		overflow: auto;
+		padding-right: 16px;
+		.no-item{
+			font-size: 24px;
+			text-align: center;
+			margin-top: 32px;
+			color: #CCCCCC;
+		}
+	}
+
+	.add-container {
+		margin-top: 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		h2 {
+			border-bottom: 2px solid #31774d;;
+			height: 40px;
+		}
+	}
+}

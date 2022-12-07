@@ -1,0 +1,75 @@
+//
+// Typography
+//
+
+:root {
+	font-size: 62.5%; // 1rem = 10px // 10px/16px = 62.5%
+}
+
+* {
+	box-sizing: border-box;
+}
+
+// Make scrolling behaviors smooth on mobile devices
+body {
+	-webkit-overflow-scrolling: touch;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+span,
+ul,
+li,
+input,
+label,
+button {
+	font-family: 'HIND VANDARO', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	margin: 0;
+	display: block;
+}
+
+// Force our app to have default font size
+// So that UI library will not override it
+div,
+p,
+span,
+input,
+textarea,
+label,
+ul {
+	outline: none;
+}
+
+i {
+	cursor: pointer;
+}
+
+
+// scrollbar style
+/* width */
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: rgb(226, 131, 57);;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgb(149, 28, 18);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgb(149, 28, 18);
+}

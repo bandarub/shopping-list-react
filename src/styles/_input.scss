@@ -1,0 +1,36 @@
+.input-wrapper {
+	display: flex;
+	border-bottom: 1px solid #2A2A2A;
+	flex: 1;
+	position: relative;
+    &.invalid{
+        border-bottom: 1px solid rgb(149, 28, 18);
+    }
+	input {
+		padding: 12px 8px;
+		border-radius: 4px;
+		border: none;
+		background: transparent;
+		max-width: calc(100% - 32px);
+		overflow: hidden;
+		text-overflow: ellipsis;
+        border: none;
+		flex: 1;
+	}
+
+	input[type='number'] {
+		max-width: 112px;
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
+			display: none;
+		}
+	}
+
+	.error {
+		position: absolute;
+		color: rgb(149, 28, 18);;
+		text-align: left;
+        bottom: -20px;
+        font-size: 16px;
+	}
+}

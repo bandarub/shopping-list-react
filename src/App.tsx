@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useSelector } from 'react-redux'
+import { ItemsState } from './types'
+import ShoppingItem from './components/ShoppingItem'
+import logo from './images/logo.jpg'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const items = useSelector<ItemsState, ItemsState>(state => state)
+	return (
+		<div className="app-wrapper">
+			<div className="header">
+				<img className="header__logo" src={logo} alt="logo" />
+				<label className="header__label">Shopping List</label>
+			</div>
+			<div className="column-headers">
+				<h2>Item</h2>
+				<h2>Quantity</h2>
+			</div>
+
+			<div className="list">
+				{items.length === 0 ? (
+					<span className='no-item'>No shopping items</span>
+				) : (
+					items.map(item => {
+						return <ShoppingItem key={item.id} item={item} action="update" />
+					})
+				)}
+			</div>
+
+			<div className="add-container">
+				<h2>Add new item</h2>
+				<ShoppingItem action="add" />
+			</div>
+		</div>
+	)
 }
 
-export default App;
+export default App
