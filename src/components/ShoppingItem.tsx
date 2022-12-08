@@ -20,7 +20,7 @@ const ShoppingItem: FC<ItemProps> = ({ item, action = 'add' }) => {
 	const items = useSelector<ItemsState, ItemType[]>(state => state)
 	const [name, setName] = useState<InputValueType>(item ? item.name : '')
 	const [quantity, setQuantity] = useState<InputValueType>(
-		item ? item.quantity : 0
+		item ? item.quantity : null
 	)
 	const [nameError, setNameError] = useState(false)
 	const [quanError, setQuanError] = useState(false)
@@ -53,8 +53,9 @@ const ShoppingItem: FC<ItemProps> = ({ item, action = 'add' }) => {
 	}
 
 	const onInputChange = (value: InputValueType, name: string) => {
+
 		const isQuantity = name === 'quantity';
-		if (isQuantity && value < 0) return;
+		if (isQuantity && (value&&value <= 0)) return;
 		if (isAdd) {
 			isQuantity ? setQuantity(value) : setName(value)
 		}

@@ -2,14 +2,15 @@
  * Generic Input component
  */
 import { FC, ReactElement, ChangeEvent, FocusEvent } from 'react'
+import { InputValueType } from '../types'
 
 interface ChildProps {
 	type?: string
 	disabled?: Boolean
-	value: string | number
+	value: InputValueType
 	placeholder?: string
-	handleChange: (value: string | number) => void
-	handleBlur: (value: string | number) => void
+	handleChange: (value: InputValueType) => void
+	handleBlur: (value: InputValueType) => void
 	error: boolean
 }
 
@@ -31,17 +32,18 @@ const Input: FC<ChildProps> = ({
 	}
 
 	const hasError = error && !value ;
-	const inputClass = ['input-wrapper', disabled ? 'disabled' : '', hasError ? 'invalid' : '']
+	const inputClass = ['input-wrapper', disabled ? 'disabled' : '', hasError ? 'invalid' : '',type]
 	return (
 		<div className={inputClass.join(' ')}>
 			<input
-				value={value}
+				value={value||''}
 				placeholder={placeholder}
 				type={type}
 				onChange={onInputChange}
 				onBlur={onInputBlur}
+				min={type==='number'?1:Infinity}
 			></input>
-			{hasError ? <span className="error">Enter valid Input</span> : null}
+			{hasError ? <span className="error">Invalid value</span> : null}
 		</div>
 	)
 }

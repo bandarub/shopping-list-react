@@ -11,6 +11,6 @@ export type ActionType = {type: Types,payload:ItemType}
 
 // Ggeneric types
 
-export type InputValueType = string | number;
+export type InputValueType = string | number| null;
 export type ItemType = {id:number, name: InputValueType, quantity: InputValueType}
 export type ItemActionType = 'add' | 'update'
